@@ -9,20 +9,31 @@ async function fetchAppName(): Promise<string> {
       return enterprise.application_name.trim();
     }
   }
-  return "Onyx";
+  return "B&T Intelligence";
 }
 
 export async function generateFaviconMetadata(): Promise<Metadata["icons"]> {
-  let iconSrc = "/onyx.ico";
-
   if (SERVER_SIDE_ONLY__PAID_ENTERPRISE_FEATURES_ENABLED) {
     const enterprise = await fetchEnterpriseSettingsSS();
     if (enterprise?.use_custom_logo) {
-      iconSrc = "/api/enterprise-settings/logo";
+      return { icon: "/api/enterprise-settings/logo" };
     }
   }
 
-  return { icon: iconSrc };
+  return {
+    icon: [
+      {
+        url: "/brand/bt-icon.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/brand/bt-icon-dark.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  };
 }
 
 export async function generateAdminTitleMetadata(): Promise<Metadata["title"]> {

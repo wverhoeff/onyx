@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { SvgOnyxLogo } from "@opal/logos";
 import { useSettings } from "@/lib/settings/hooks";
 import { Text } from "@opal/components";
+import { BrandMark } from "@/lib/branding/components";
 
 export default function AuthFlowContainer({
   children,
@@ -19,7 +19,7 @@ export default function AuthFlowContainer({
     <div className="p-4 flex flex-col items-center justify-center min-h-screen bg-background">
       <div className="w-full max-w-md flex items-start flex-col bg-background-tint-00 rounded-16 shadow-lg shadow-box-02 p-6">
         {/* logo_display_style only governs the sidebar; auth pages always show
-            the logo mark (custom when uploaded, Onyx otherwise) */}
+            the logo mark (custom when uploaded, B&T otherwise) */}
         {logoUrl ? (
           <div
             className="aspect-square rounded-full overflow-hidden relative"
@@ -33,7 +33,12 @@ export default function AuthFlowContainer({
             />
           </div>
         ) : (
-          <SvgOnyxLogo size={44} className="text-theme-primary-05" />
+          <div className="flex w-full flex-col items-center">
+            <BrandMark height={60} />
+            <span className="font-semibold text-[23px] leading-none text-[#3B3B3B] dark:text-[#E8E8E8]">
+              Intelligence
+            </span>
+          </div>
         )}
         <div className="w-full mt-3">{children}</div>
       </div>
@@ -46,7 +51,7 @@ export default function AuthFlowContainer({
               </Text>{" "}
               <Link
                 href="/auth/signup"
-                className="text-text-05 mainUiAction underline transition-colors duration-200"
+                className="text-action-text-link-05 mainUiAction underline transition-colors duration-200"
               >
                 Create an Account
               </Link>
@@ -59,7 +64,7 @@ export default function AuthFlowContainer({
           Already have an account?{" "}
           <Link
             href="/auth/login?autoRedirectToSignup=false"
-            className="text-text-05 mainUiAction underline transition-colors duration-200"
+            className="text-action-text-link-05 mainUiAction underline transition-colors duration-200"
           >
             Sign In
           </Link>

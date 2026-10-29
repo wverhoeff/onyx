@@ -16,6 +16,22 @@
 @import "./css/desktop-titlebar.css";
 @config '../../tailwind.config.js';
 
+/* The sampled B&T orange needs a dark foreground to meet AA on buttons. */
+.interactive[data-interactive-variant="default"][data-interactive-prominence="primary"]:not([data-disabled]) {
+  --interactive-foreground: #1f1f1f;
+  --interactive-foreground-icon: #1f1f1f;
+}
+
+.opal-sidebar-tab .interactive[data-interactive-variant="sidebar-heavy"][data-interactive-state="selected"] {
+  background-color: var(--theme-primary-05);
+  --interactive-foreground: #1f1f1f;
+  --interactive-foreground-icon: #1f1f1f;
+}
+
+.opal-sidebar-tab .interactive[data-interactive-variant="sidebar-heavy"][data-interactive-state="selected"]:hover:not([data-disabled]) {
+  background-color: var(--theme-primary-04);
+}
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still

@@ -5,11 +5,16 @@ import { toast } from "@opal/layouts";
 import { ChatSession } from "@/app/app/interfaces";
 import { DEFAULT_AGENT_ID } from "@/lib/constants";
 import { LOCAL_STORAGE_KEYS } from "@/lib/sidebar/constants";
-import { Logo } from "@/lib/app/components";
+import { BrandLockup, BrandMark } from "@/lib/branding/components";
 import type { IconFunctionComponent } from "@opal/types";
 
 export function renderSidebarLogo(folded: boolean): IconFunctionComponent {
-  return (props) => React.createElement(Logo, { ...props, folded });
+  return ({ className }) =>
+    folded ? (
+      React.createElement(BrandMark, { height: 24, compact: true, className })
+    ) : (
+      React.createElement(BrandLockup, { className })
+    );
 }
 
 /** Parameters shared by move-operation helpers. */

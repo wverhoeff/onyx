@@ -9,6 +9,7 @@ import { cn } from "@opal/utils";
 import Text from "@/refresh-components/texts/Text";
 import Truncated from "@/refresh-components/texts/Truncated";
 import { SvgOnyxLogo, SvgOnyxLogoTyped } from "@opal/logos";
+import { BrandLockup, BrandMark } from "@/lib/branding/components";
 
 export interface LogoProps {
   folded?: boolean;
@@ -49,7 +50,7 @@ export function Logo({ folded, size, className, onyxBranded }: LogoProps) {
       />
     </div>
   ) : (
-    <SvgOnyxLogo size={resolvedSize} className={cn("shrink-0", className)} />
+    <BrandMark height={resolvedSize} compact={folded} className={className} />
   );
 
   const renderNameAndPoweredBy = (opts: {
@@ -96,8 +97,8 @@ export function Logo({ folded, size, className, onyxBranded }: LogoProps) {
   return applicationName ? (
     renderNameAndPoweredBy({ includeLogo: true, includeName: true })
   ) : folded ? (
-    <SvgOnyxLogo size={resolvedSize} className={cn("shrink-0", className)} />
+    <BrandMark height={resolvedSize} compact className={className} />
   ) : (
-    <SvgOnyxLogoTyped size={resolvedSize} className={className} />
+    <BrandLockup markHeight={resolvedSize} className={className} />
   );
 }

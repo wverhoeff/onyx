@@ -205,15 +205,15 @@
       "type": "color"
     },
     "theme-primary-06": {
-      "value": "{onyx-chrome-00}",
+      "value": "#D98100",
       "type": "color"
     },
     "theme-primary-05": {
-      "value": "{onyx-chrome-10}",
+      "value": "#F7990C",
       "type": "color"
     },
     "theme-primary-04": {
-      "value": "{onyx-chrome-20}",
+      "value": "#FFAD3E",
       "type": "color"
     },
     "theme-gradient-05": {
@@ -501,7 +501,7 @@
       "type": "color"
     },
     "action-text-link-05": {
-      "value": "{blue-45}",
+      "value": "#FFBA5C",
       "type": "color"
     },
     "action-text-danger-05": {
